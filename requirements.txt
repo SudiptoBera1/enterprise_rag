@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+openai
+python-dotenv
+faiss-cpu
+rank-bm25
+pypdf
+numpy
+slowapi
+python-json-logger
+httpx
+streamlit>=1.28.0
+requests
