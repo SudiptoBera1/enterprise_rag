@@ -1,0 +1,14 @@
+[
+  {
+    "query": "What is data governance policy?",
+    "relevant_doc_ids": ["01_Data_Governance_Policy"]
+  },
+  {
+    "query": "How to respond to cybersecurity incidents?",
+    "relevant_doc_ids": ["06_Cybersecurity_Incident_Response_SOP", "05_Information_Security_Policy"]
+  },
+  {
+    "query": "What are AI model validation requirements?",
+    "relevant_doc_ids": ["09_AI_Model_Validation_SOP", "07_AI_Governance_Policy"]
+  }
+]

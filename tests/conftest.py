@@ -90,7 +90,25 @@ def mock_rag_service():
             "answer": "AI governance is a framework for managing AI risk.",
             "sources": ["07_AI_Governance_Policy"],
             "confidence": 0.82,
+            "_telemetry": {
+                "retrieval_ms": 20,
+                "generation_ms": 120,
+                "token_usage": {
+                    "prompt_tokens": 50,
+                    "completion_tokens": 70,
+                    "total_tokens": 120,
+                    "estimated_cost_usd": 0.0001,
+                },
+            },
         }
     )
-    with patch("api.routes.rag_service.ask_async", async_mock):
+    init_mock = AsyncMock(return_value=None)
+    with patch("api.routes.rag_service.ask_async", async_mock), patch("api.routes.rag_service.ensure_initialized_async", init_mock):
+        # Inject deterministic document metadata used by RBAC filtering in routes.
+        from api.routes import rag_service
+        rag_service.documents = [
+            {"doc_id": "01_Data_Governance_Policy", "content": "Data governance policy text"},
+            {"doc_id": "07_AI_Governance_Policy", "content": "AI governance policy text"},
+            {"doc_id": "09_AI_Model_Validation_SOP", "content": "Model validation SOP text"},
+        ]
         yield

@@ -10,6 +10,8 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 SERVICE_API_KEY = os.getenv("SERVICE_API_KEY")
 SERVICE_API_KEYS = os.getenv("SERVICE_API_KEYS", "")
 CORS_ALLOW_ORIGINS = os.getenv("CORS_ALLOW_ORIGINS", "http://localhost:8501,http://127.0.0.1:8501")
+RBAC_ROLE_MAP = os.getenv("RBAC_ROLE_MAP", "legacy:admin,default:user")
+RBAC_DOC_ACCESS_MAP = os.getenv("RBAC_DOC_ACCESS_MAP", "")
 
 MODEL_NAME = "gpt-4o-mini"
 EMBEDDING_MODEL = "text-embedding-3-small"
